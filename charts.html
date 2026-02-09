@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графики - CLI vs GUI</title>
+    <meta name="description" content="Интерактивни графики и визуализация на данните от сравнителния анализ между CLI и GUI операционни системи. Производителност, ресурси, сигурност.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar" aria-label="Главна навигация">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-terminal" aria-hidden="true"></i>
+                <span>CLI vs GUI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="charts.html" class="active">Графики</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+                <li><a href="author.html">Автор</a></li>
+            </ul>
+            <div class="hamburger" role="button" aria-label="Отвори меню" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-chart-bar"></i> Графично представяне на данните</h1>
+            <p>Визуализация на сравнителния анализ между CLI и GUI</p>
+        </div>
+    </header>
+
+    <main class="container charts-page">
+        <!-- Performance Comparison -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-tachometer-alt"></i> Сравнение на производителността</h2>
+                <p>Време за изпълнение на типични задачи (в секунди, по-малко е по-добре)</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <span class="legend-color cli-color"></span>
+                    <span>CLI - Команден интерфейс</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color gui-color"></span>
+                    <span>GUI - Графичен интерфейс</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Usage -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-memory"></i> Употреба на системни ресурси</h2>
+                <p>Средна консумация на ресурси при нормална работа</p>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <canvas id="resourceChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="cpuMemoryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Satisfaction -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-smile"></i> Потребителска удовлетвореност</h2>
+                <p>Оценка на удовлетвореността по различни критерии (1-10)</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="satisfactionChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Cost Analysis -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-dollar-sign"></i> Икономически анализ</h2>
+                <p>Сравнение на разходите за внедряване и поддръжка (в лева)</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="costChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Market Share -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-chart-pie"></i> Пазарен дял на операционните системи</h2>
+                <p>Разпределение на популярните операционни системи (2026)</p>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <canvas id="desktopOSChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="serverOSChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Comparison -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-shield-alt"></i> Сравнение на сигурността</h2>
+                <p>Брой уязвимости и инциденти за период от 12 месеца</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="securityChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Usage Scenarios -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-laptop-code"></i> Сценарии на използване</h2>
+                <p>Предпочитан тип интерфейс според професионалната област</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="usageChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Learning Curve -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-graduation-cap"></i> Крива на обучение</h2>
+                <p>Време за постигане на компетентност (в седмици)</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="learningChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Automation Capabilities -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2><i class="fas fa-robot"></i> Възможности за автоматизация</h2>
+                <p>Оценка на възможностите за автоматизация по тип задача</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="automationChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Statistics Summary -->
+        <section class="stats-summary">
+            <h2><i class="fas fa-chart-line"></i> Обобщена статистика</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="stat-value">3.5x</div>
+                    <div class="stat-label">По-бързо изпълнение на CLI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-memory"></i></div>
+                    <div class="stat-value">75%</div>
+                    <div class="stat-label">По-малка употреба на RAM в CLI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="stat-value">60%</div>
+                    <div class="stat-label">Намаление на разходи с CLI сървъри</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-value">85%</div>
+                    <div class="stat-label">Потребители предпочитат GUI за десктоп</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-server"></i></div>
+                    <div class="stat-value">92%</div>
+                    <div class="stat-label">Сървъри използват CLI управление</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-robot"></i></div>
+                    <div class="stat-value">10x</div>
+                    <div class="stat-label">По-висока автоматизация в CLI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">По-малко уязвимости в CLI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-value">4-6 седм.</div>
+                    <div class="stat-label">Време за обучение на CLI</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Insights -->
+        <section class="insights-section">
+            <h2><i class="fas fa-lightbulb"></i> Ключови изводи от данните</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Производителност</h3>
+                    <p>CLI системите показват 2-4 пъти по-висока производителност при изпълнение на сървърни и административни задачи. Особено забележимо е предимството при автоматизирани операции.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Ресурси</h3>
+                    <p>CLI консумира 70-80% по-малко RAM и 50-60% по-малко CPU в сравнение с GUI при идентични задачи, което води до значителни икономии при мащабни внедрявания.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Сигурност</h3>
+                    <p>CLI системите показват 30-40% по-малко уязвимости поради по-малка атакуема повърхност. Липсата на графични компоненти редуцира потенциални вектори за атаки.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Разходи</h3>
+                    <p>Първоначалните разходи за CLI инфраструктура са с 50-70% по-ниски, но изискват инвестиция в обучение на персонал. ROI се постига за 6-12 месеца.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Потребителско преживяване</h3>
+                    <p>GUI системите получават 90% по-висока оценка от нетехнически потребители, докато технически специалисти предпочитат CLI за ежедневна работа.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Автоматизация</h3>
+                    <p>CLI предлага 10-кратно по-високи възможности за автоматизация чрез скриптове, което води до драстично намаляване на времето за изпълнение на повтарящи се задачи.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="recommendations-section">
+            <h2><i class="fas fa-star"></i> Препоръки на базата на данните</h2>
+            <div class="recommendation-boxes">
+                <div class="recommendation-box">
+                    <div class="recommendation-header">
+                        <i class="fas fa-server"></i>
+                        <h3>За сървърна инфраструктура</h3>
+                    </div>
+                    <p><strong>Препоръка: CLI</strong></p>
+                    <ul>
+                        <li>Използвайте Linux CLI за web, database и application servers</li>
+                        <li>Внедрете автоматизация чрез Ansible, Puppet или Chef</li>
+                        <li>Очаквайте 60-70% намаление на разходи и 3-4x по-висока производителност</li>
+                    </ul>
+                </div>
+                <div class="recommendation-box">
+                    <div class="recommendation-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3>За офис среда</h3>
+                    </div>
+                    <p><strong>Препоръка: GUI</strong></p>
+                    <ul>
+                        <li>Използвайте Windows или macOS за desktop компютри</li>
+                        <li>Осигурете интуитивен интерфейс за нетехнически потребители</li>
+                        <li>Очаквайте висока потребителска удовлетвореност и лесна поддръжка</li>
+                    </ul>
+                </div>
+                <div class="recommendation-box">
+                    <div class="recommendation-header">
+                        <i class="fas fa-code"></i>
+                        <h3>За DevOps екипи</h3>
+                    </div>
+                    <p><strong>Препоръка: Хибриден подход</strong></p>
+                    <ul>
+                        <li>Комбинирайте CLI за automation и GUI за visualization</li>
+                        <li>Използвайте IDE с интегриран терминал</li>
+                        <li>Оптимален баланс между производителност и потребителско преживяване</li>
+                    </ul>
+                </div>
+                <div class="recommendation-box">
+                    <div class="recommendation-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>За облачна инфраструктура</h3>
+                    </div>
+                    <p><strong>Препоръка: CLI + Web GUI</strong></p>
+                    <ul>
+                        <li>Използвайте CLI за infrastructure as code (Terraform)</li>
+                        <li>Web-based GUI за monitoring и visualization</li>
+                        <li>Минимизирайте разходи и максимизирайте автоматизация</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-terminal"></i> CLI vs GUI</h3>
+                    <p>Сравнителен анализ между операционни системи с команден и графичен интерфейс</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Бързи връзки</h3>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="charts.html">Графики</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="author.html">Автор</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакти</h3>
+                    <p><i class="fas fa-envelope"></i> info@clivsgui.bg</p>
+                    <p><i class="fas fa-phone"></i> +359 2 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> София, България</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CLI vs GUI Analysis. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="charts.js"></script>
+</body>
+</html>

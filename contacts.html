@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - CLI vs GUI</title>
+    <meta name="description" content="Свържете се с нас за въпроси относно сравнителния анализ между CLI и GUI операционни системи. Контактна форма, адрес, телефон.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Главна навигация">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-terminal" aria-hidden="true"></i>
+                <span>CLI vs GUI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="charts.html">Графики</a></li>
+                <li><a href="contacts.html" class="active">Контакти</a></li>
+                <li><a href="author.html">Автор</a></li>
+            </ul>
+            <div class="hamburger" role="button" aria-label="Отвори меню" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-envelope"></i> Свържете се с нас</h1>
+            <p>Имате въпроси или предложения? Ще се радваме да чуем от вас!</p>
+        </div>
+    </header>
+
+    <main class="container contacts-page">
+        <div class="contact-layout">
+            <!-- Contact Form -->
+            <section class="contact-form-section">
+                <h2><i class="fas fa-paper-plane"></i> Изпратете ни съобщение</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Име и фамилия *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required
+                            placeholder="Въведете вашето име"
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Имейл адрес *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            placeholder="example@email.com"
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i> Телефон
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone"
+                            placeholder="+359 ..."
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">
+                            <i class="fas fa-tag"></i> Тема *
+                        </label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Изберете тема</option>
+                            <option value="general">Общ въпрос</option>
+                            <option value="technical">Технически въпрос</option>
+                            <option value="collaboration">Възможност за сътрудничество</option>
+                            <option value="feedback">Обратна връзка</option>
+                            <option value="other">Друго</option>
+                        </select>
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="osPreference">
+                            <i class="fas fa-desktop"></i> Предпочитан тип интерфейс
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="osPreference" value="cli">
+                                <span>CLI (Команден интерфейс)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="osPreference" value="gui">
+                                <span>GUI (Графичен интерфейс)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="osPreference" value="hybrid">
+                                <span>Хибриден (И двата)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment"></i> Съобщение *
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            required
+                            placeholder="Напишете вашето съобщение тук..."
+                        ></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span>Искам да получавам новини за операционни системи и технологии</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span>Съгласен съм с условията за обработка на лични данни *</span>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Изпрати съобщение
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Благодарим ви!</h3>
+                    <p>Вашето съобщение беше изпратено успешно. Ще се свържем с вас в най-кратък срок.</p>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <aside class="contact-info-section">
+                <h2><i class="fas fa-info-circle"></i> Информация за контакт</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Адрес</h3>
+                        <p>бул. "Витоша" 123<br>София 1000<br>България</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Телефон</h3>
+                        <p>+359 2 123 4567<br>+359 888 123 456</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Имейл</h3>
+                        <p>info@clivsgui.bg<br>support@clivsgui.bg</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Работно време</h3>
+                        <p>Понеделник - Петък<br>9:00 - 18:00</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h3>Последвайте ни</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="quick-tips">
+                    <h3><i class="fas fa-lightbulb"></i> Бързи съвети</h3>
+                    <ul>
+                        <li>Отговаряме на всички запитвания в рамките на 24 часа</li>
+                        <li>За спешни технически въпроси звъннете директно</li>
+                        <li>Проверете секцията <a href="index.html#references">Литература</a> за допълнителни ресурси</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <h2><i class="fas fa-map"></i> Къде се намираме</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2932.3936827219656!2d23.3193!3d42.6977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8561f62f6b0f%3A0x400a01269bf5e20!2z0JrQvtC90LPRgNC10YHQvdCwINC_0LvQsNGJLCDQodC-0YTQuNGP!5e0!3m2!1sbg!2sbg!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Google Maps - нашето местоположение в София">
+                </iframe>
+            </div>
+            <div class="map-info">
+                <p><i class="fas fa-info-circle"></i> Нашият офис се намира в центъра на София, лесно достъпен с метро и обществен транспорт.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2><i class="fas fa-question-circle"></i> Често задавани въпроси</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h3>Колко време отнема да получа отговор на запитването ми?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Обикновено отговаряме в рамките на 24 часа през работни дни. За спешни въпроси можете да ни се обадите директно на посочения телефон.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h3>Предлагате ли консултантски услуги?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, предлагаме консултации за избор на подходяща операционна система и интерфейс според нуждите на вашия бизнес. Свържете се с нас за повече информация.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h3>Организирате ли обучения за работа с CLI?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, предлагаме обучителни курсове за работа с командния интерфейс на различни нива - начинаещи, средно напреднали и експерти.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h3>Мога ли да споделя данните от този сайт в моята презентация?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, можете свободно да използвате информацията и графиките от сайта за образователни цели, стига да цитирате източника.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h3>Обработвате ли личните ми данни сигурно?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, спазваме всички изисквания на GDPR за защита на личните данни. Информацията ви се използва само за отговор на вашето запитване и не се споделя с трети страни.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternative Contact Methods -->
+        <section class="alternative-contact">
+            <h2><i class="fas fa-comments"></i> Други начини за връзка</h2>
+            <div class="contact-methods">
+                <div class="method-card">
+                    <i class="fab fa-slack"></i>
+                    <h3>Slack</h3>
+                    <p>Присъединете се към нашата Slack общност</p>
+                    <a href="#" class="btn-link">Към Slack</a>
+                </div>
+                <div class="method-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>Дискутирайте в реално време с нашия екип</p>
+                    <a href="#" class="btn-link">Към Discord</a>
+                </div>
+                <div class="method-card">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>Бърза комуникация през Telegram</p>
+                    <a href="#" class="btn-link">Към Telegram</a>
+                </div>
+                <div class="method-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Форум</h3>
+                    <p>Посетете нашия форум за дискусии</p>
+                    <a href="#" class="btn-link">Към Форума</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-terminal"></i> CLI vs GUI</h3>
+                    <p>Сравнителен анализ между операционни системи с команден и графичен интерфейс</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Бързи връзки</h3>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="charts.html">Графики</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                        <li><a href="author.html">Автор</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакти</h3>
+                    <p><i class="fas fa-envelope"></i> info@clivsgui.bg</p>
+                    <p><i class="fas fa-phone"></i> +359 2 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> София, България</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CLI vs GUI Analysis. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
