@@ -6,19 +6,19 @@
     <title>Графики - CLI vs GUI</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand"><i class="fas fa-terminal"></i><span>CLI vs GUI</span></div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Меню"><span></span><span></span><span></span></label>
             <ul class="nav-menu">
                 <li><a href="index.html">Начало</a></li>
                 <li><a href="charts.html" class="active">Графики</a></li>
                 <li><a href="contacts.html">Контакти</a></li>
                 <li><a href="author.html">Автор</a></li>
             </ul>
-            <div class="hamburger" role="button" aria-label="Меню" tabindex="0"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
@@ -33,28 +33,103 @@
         <div class="chart-card">
             <h3><i class="fas fa-tachometer-alt"></i> Производителност</h3>
             <p class="subtitle">Време за изпълнение на задачи (секунди — по-малко е по-добре)</p>
-            <div class="chart-box"><canvas id="performanceChart"></canvas></div>
+            <div class="chart-box">
+                <div class="bar-chart">
+                    <div class="bar-group">
+                        <div class="bar-label">CLI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-cli" style="--height: 2.5;"></div>
+                        </div>
+                        <div class="bar-value">2.5s</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">GUI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-gui" style="--height: 8.8;"></div>
+                        </div>
+                        <div class="bar-value">8.8s</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 2. Satisfaction -->
         <div class="chart-card">
             <h3><i class="fas fa-smile"></i> Потребителска удовлетвореност</h3>
             <p class="subtitle">Оценка по различни критерии (1-10)</p>
-            <div class="chart-box"><canvas id="satisfactionChart"></canvas></div>
+            <div class="chart-box">
+                <div class="bar-chart">
+                    <div class="bar-group">
+                        <div class="bar-label">PC (CLI)</div>
+                        <div class="bar-container">
+                            <div class="bar bar-cli" style="--height: 6.2;"></div>
+                        </div>
+                        <div class="bar-value">6.2/10</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">Desktop (GUI)</div>
+                        <div class="bar-container">
+                            <div class="bar bar-gui" style="--height: 8.5;"></div>
+                        </div>
+                        <div class="bar-value">8.5/10</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">Mobile</div>
+                        <div class="bar-container">
+                            <div class="bar bar-purple" style="--height: 7.8;"></div>
+                        </div>
+                        <div class="bar-value">7.8/10</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 3. Cost -->
         <div class="chart-card">
             <h3><i class="fas fa-coins"></i> Икономически анализ</h3>
             <p class="subtitle">Разходи за внедряване и поддръжка (лева)</p>
-            <div class="chart-box"><canvas id="costChart"></canvas></div>
+            <div class="chart-box">
+                <div class="bar-chart">
+                    <div class="bar-group">
+                        <div class="bar-label">CLI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-cli" style="--height: 3.2;"></div>
+                        </div>
+                        <div class="bar-value">3,200 лв.</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">GUI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-gui" style="--height: 7.5;"></div>
+                        </div>
+                        <div class="bar-value">7,500 лв.</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 4. Security -->
         <div class="chart-card">
             <h3><i class="fas fa-shield-alt"></i> Сигурност</h3>
             <p class="subtitle">Уязвимости за период от 12 месеца</p>
-            <div class="chart-box"><canvas id="securityChart"></canvas></div>
+            <div class="chart-box">
+                <div class="bar-chart">
+                    <div class="bar-group">
+                        <div class="bar-label">CLI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-cli" style="--height: 2.3;"></div>
+                        </div>
+                        <div class="bar-value">23 проблема</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">GUI</div>
+                        <div class="bar-container">
+                            <div class="bar bar-gui" style="--height: 8.7;"></div>
+                        </div>
+                        <div class="bar-value">87 проблема</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Stats Summary -->
@@ -92,8 +167,5 @@
             <div class="footer-bottom">&copy; 2026 CLI vs GUI Analysis. Всички права запазени.</div>
         </div>
     </footer>
-
-    <script src="charts.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
